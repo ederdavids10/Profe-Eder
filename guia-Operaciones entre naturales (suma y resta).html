@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Guía 2 – Operaciones entre Naturales (Suma y Resta) | Matemáticas 6º</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* ── Contenedor principal de la guía ── */
+                .guia-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3em 2em 4em;
+            color: #ffffff;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Encabezado institucional ── */
+        .inst-header {
+            text-align: center;
+            border: 2px solid rgba(56,189,248,0.4);
+            border-radius: 12px;
+            padding: 2em;
+            margin-bottom: 3em;
+            background: rgba(56,189,248,0.05);
+            backdrop-filter: blur(10px);
+        }
+        .inst-header h2 {
+            font-size: 1.2em;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #38bdf8;
+            margin-bottom: 0.5em;
+        }
+        .inst-header p {
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1em;
+            line-height: 1.8;
+        }
+        .inst-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2em;
+            justify-content: center;
+            margin-top: 1.2em;
+            font-size: 0.9em;
+        }
+        .inst-meta span {
+            background: rgba(139, 92, 246, 0.1);
+            padding: 0.5em 1em;
+            border-radius: 6px;
+            border-left: 3px solid var(--color-secondary);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .inst-meta span strong {
+            color: #38bdf8;
+            font-weight: 700;
+        }
+
+        /* ── Títulos de sección ── */
+        .guia-wrapper h1 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #38bdf8;
+            border-left: 5px solid #38bdf8;
+            padding-left: 0.6em;
+            margin: 2em 0 0.8em;
+        }
+        .guia-wrapper h2 {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 2em 0 0.7em;
+            border-bottom: 1px solid rgba(56,189,248,0.3);
+            padding-bottom: 0.3em;
+        }
+        .guia-wrapper h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #8b5cf6;
+            margin: 1.5em 0 0.5em;
+        }
+        .guia-wrapper p {
+            line-height: 1.75;
+            margin-bottom: 1em;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        /* Cajas de ejemplo */
+        .ejemplo-box {
+            background: rgba(34,197,94,0.08);
+            border: 1px solid rgba(34,197,94,0.25);
+            border-radius: 12px;
+            padding: 1.2em 1.8em;
+            margin: 1.5em 0;
+        }
+        .ejemplo-label {
+            display: inline-block;
+            background: #22c55e;
+            color: #0f172a;
+            font-size: 0.75em;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 0.2em 0.8em;
+            border-radius: 20px;
+            margin-bottom: 1em;
+        }
+        .suma-visual, .resta-visual {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.35);
+            border-radius: 10px;
+            padding: 1em;
+            margin: 1em 0;
+            font-size: 1.1em;
+            letter-spacing: 0.05em;
+            color: #86efac;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        .paso-suma {
+            font-size: 0.9em;
+            color: #c4b5fd;
+            margin-top: 0.5em;
+        }
+        .formula {
+            display: block;
+            background: rgba(0,0,0,0.3);
+            border-radius: 6px;
+            padding: 0.6em 1em;
+            margin: 0.6em 0;
+            font-family: monospace;
+            color: #22c55e;
+            font-size: 0.95em;
+        }
+        .tabla-precios {
+            background: rgba(56,189,248,0.1);
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .tabla-precios th, .tabla-precios td {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.5em;
+            text-align: left;
+        }
+        .tabla-precios th {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+        .ejercicios-section {
+            background: rgba(239,68,68,0.05);
+            border: 2px solid rgba(239,68,68,0.3);
+            border-radius: 10px;
+            padding: 1.5em 2em;
+            margin: 2.5em 0;
+        }
+        .ejercicios-section h2 {
+            color: #f87171;
+            border-bottom-color: rgba(239,68,68,0.3);
+            text-align: center;
+        }
+        .ejercicio-grupo {
+            margin: 1.2em 0;
+        }
+        .ejercicio-grupo p {
+            font-weight: 600;
+            color: #fca5a5;
+            margin-bottom: 0.6em;
+        }
+        .ejercicio-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.6em;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .ejercicio-lista2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.6em;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .ejercicio-lista3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 0.6em;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .ejercicio-lista li {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 0.5em 0.9em;
+            font-size: 0.88em;
+            color: #ffffff;
+        }
+        .ejercicio-lista2 li {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 0.5em 0.9em;
+            font-size: 0.88em;
+            color: #ffffff;
+        }
+        .ejercicio-lista3 li {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 0.5em 0.9em;
+            font-size: 1.0em;
+            font-family: 'Bold', monospace
+            color: #ffffff;
+        }
+        .ejercicio-lista li span {
+            color: #f87171;
+            font-weight: 700;
+            margin-right: 0.4em;
+        }
+        .ejercicio-lista2 li span {
+            color: #f87171;
+            font-weight: 700;
+            margin-right: 0.4em;
+        }
+        .ejercicio-lista3 li span {
+            color: #f87171;
+            font-weight: 700;
+            margin-right: 0.4em;
+        }
+        .operacion-fila {
+            display: flex;
+            gap: 1.2em;
+            justify-content: flex-start;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .sep {
+            border: none;
+            border-top: 1px solid rgba(56,189,248,0.2);
+            margin: 2em 0;
+        }
+        .texto-original {
+            white-space: pre-line;
+        }
+        .sangria {
+            padding-left: 1.2em;
+        }
+        @media (max-width: 640px) {
+            .operacion-fila { flex-direction: column; gap: 0.3em;}
+        }
+        .ecuacion {
+        font-family: 'Courier New', monospace;
+        font-size: 1.3rem;
+        color: white;
+        display: inline-block;
+        background: rgba(0,0,0,0.3);
+        padding: 15px 20px;
+        border-radius: 10px;
+    }
+       .cuadro {
+        display:inline-block;
+        width:1.2em;
+        height:1.2em;
+        background-color: #ffffff;
+        border:1px solid #cccccc;
+        border-radius:4px;
+        vertical-align: middle;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+        margin: 0 2px;
+        }
+    .img-icon {
+    font-size: 1.8rem;      /* Ajusta este valor para el tamaño que quieras */
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;      /* Opcional: separación del texto */
+}
+
+    .tabla-precios td:first-child {
+    vertical-align: middle;  /* Alinea verticalmente el contenido de la celda */
+}
+</style>
+    </style>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt style2">
+        <a href="Matemática 6º.html" class="logo" style="font-size:1.3em;"><strong>← Atrás</strong></a>
+        <nav><a href="#menu">Menú</a></nav>
+    </header>
+
+    <!-- Menú -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Matemáticas.html">Matemáticas</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <section id="banner" class="style2">
+        <div class="inner">
+            <header class="major" style="padding-left:7em;">
+                <h1>Operaciones entre Naturales</h1>
+            </header>
+            <div class="content" style="padding-left:14em;">
+                <p>➕ Suma y Resta · Guía 2 · Matemáticas 6º ➖</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal: transcripción COMPLETA del PDF -->
+    <div id="main">
+        <section id="one">
+            <div class="guia-wrapper">
+                <!-- Encabezado institucional -->
+                <div class="inst-header">
+                    <h2>EDER DAVID SEQUEDA MARTINEZ</h2>
+                    <p>Ingeniero Civil<br>
+                    Docente: Matemáticas – Geometria – Estadística – Física</p>
+                    <div class="inst-meta" style="display: flex; flex-direction: column; gap: 1rem;">
+    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+        <span style="background: rgba(139, 92, 246, 0.1); padding: 0.5em 1em; border-radius: 6px; border-left: 3px solid #8b5cf6; transition: all 0.3s ease; display: inline-block;">
+            <strong style="color: #38bdf8;">Asignatura:</strong> Matemática
+        </span>
+        <span style="background: rgba(139, 92, 246, 0.1); padding: 0.5em 1em; border-radius: 6px; border-left: 3px solid #8b5cf6; transition: all 0.3s ease; display: inline-block;">
+            <strong style="color: #38bdf8;">Tema:</strong> Operaciones entre Naturales (Suma y Resta)
+        </span>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+        <span style="background: rgba(139, 92, 246, 0.1); padding: 0.5em 1em; border-radius: 6px; border-left: 3px solid #8b5cf6; transition: all 0.3s ease; display: inline-block;">
+            <strong style="color: #38bdf8;">Grado:</strong> 6°
+        </span>
+        <span style="background: rgba(139, 92, 246, 0.1); padding: 0.5em 1em; border-radius: 6px; border-left: 3px solid #8b5cf6; transition: all 0.3s ease; display: inline-block;">
+            <strong style="color: #38bdf8;">Docente:</strong> Eder David Sequeda Martínez
+        </span>
+    </div>
+</div>
+
+<style>
+    .inst-meta span:hover {
+        transform: translateY(-3px);
+        background: rgba(139, 92, 246, 0.2);
+        box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+    }
+</style>
+</div>
+                <!-- Título principal -->
+                <h1>Operaciones entre Números Naturales</h1>
+                <p>En el conjunto de los números naturales se definen las siguientes operaciones: adición, sustracción, multiplicación, división, potenciación, radicación y logaritmación.</p>
+
+                <h2>Adición o Suma de números naturales</h2>
+                <p>La adición de números naturales es una operación que permite solucionar situaciones en las que se realizan actividades como agregar, agrupar o comparar. En esta operación los números a sumar reciben el nombre de sumandos y al resultado se le denomina suma.</p>
+                <p>El término "reagrupar" indica lo mismo que "llevar", y se basa en el hecho de que en el sistema de numeración decimal cada 10 unidades de un orden forman una unidad del orden siguiente. Así, 10 unidades corresponden a una decena, 10 decenas conforman una centena, 10 centenas forman una unidad de mil, etc.</p>
+
+                <h3>Ejemplo:</h3>
+                <p>Lina va de Bogotá a Buenos Aires por una aerolínea y recorre 4699 km. Una vez allí, toma otro avión que la conduce a Lima, volando esta vez 3151 km. Finalmente, en Lima toma un vuelo de regreso a Bogotá y vuela 1893 km.</p>
+                <p>¿Cuántos kilómetros voló Lina en total?</p>
+                <p>Para saber cuántos kilómetros voló Lina en total en los tres trayectos, se debe efectuar una adición.</p>
+                <div class="suma-visual">1. Se suman las unidades.<br>
+                    9 + 1 + 3 = 13 
+
+El 13 se reagrupa en 3 unidades y 1 decena, esta última se suma en la columna correspondiente.<br><p style="color: #ffffff;">                          1
+                  <span style="font-weight:lighter; color: #86efac;">    4 6 9 9<br>                  +   3 1 5 1<br>                      1 8 9 3</span><br>                  <span style="border-top:3px solid #86efac; display:inline-block; width:170px;">          3</span>
+<span style="font-weight:lighter; color: #86efac;">2. Se suman las decenas, incluida la que se reagrupó. 1 + 9 + 5 + 9 = 24. 
+
+Las 24 decenas que se obtienen se reagrupan en 4 decenas y 2 centenas. Se escriben las 4 decenas y se reagrupan 2 centenas en la columna correspondiente.<br><p style="color: #ffffff;">                        2 1
+                  <span style="font-weight:lighter; color: #86efac;">    4 6 9 9<br>                  +   3 1 5 1<br>                      1 8 9 3</span><br>                  <span style="border-top:3px solid #86efac; display:inline-block; width:170px;">        4 3</span>
+                </div>
+                <div class="suma-visual">3. Se suman las centenas, incluidas las 2 que se reagruparon.<br>
+                    2 + 6 + 1 + 8 = 17<br>
+Las 17 centenas se reagrupan en 1 unidad de mil y 7 centenas, que se escriben en la columna que corresponde.<br><p style="color: #ffffff;">                      1 2 1
+                  <span style="font-weight:lighter; color: #86efac;">    4 6 9 9<br>                  +   3 1 5 1<br>                      1 8 9 3</span><br>                  <span style="border-top:3px solid #86efac; display:inline-block; width:170px;">      7 4 3</span>
+<span style="font-weight:lighter; color: #86efac;">4. Unidades de mil, incluyendo la que se reagrupó: 1 + 4 + 3 + 1 = 9.<br><p style="color: #ffffff;">                      1 2 1
+                  <span style="font-weight:lighter; color: #86efac;">    4 6 9 9<br>                  +   3 1 5 1<br>                      1 8 9 3</span><br>                  <span style="border-top:3px solid #86efac; display:inline-block; width:170px;">    9 7 4 3</span>
+
+<span style="font-weight:lighter; color: #86efac;">Lina voló en total 9.743 km.<br></div>
+                <h2>Propiedades de la adición</h2>
+                <p>La adición de números naturales satisface las siguientes propiedades:</p>
+                <p class="content" style="padding-left:4em;">• Clausurativa: La suma de dos números naturales es otro número natural.</p>
+                <p class="content" style="padding-left:4em;">• Conmutativa: La suma de dos números naturales no varía si se cambia el orden de los sumandos. Por ejemplo, 4 + 2 = 2 + 4.</p>
+                <p class="content" style="padding-left:4em;">• Asociativa: Tres o más sumandos pueden agruparse de diferentes maneras y la suma no cambia. Por ejemplo, (2 + 3) + 4 = 2 + (3 + 4).</p>
+                <p class="content" style="padding-left:4em;">• Modulativa: La suma de cualquier número natural y 0 es igual al mismo número natural. Por ejemplo, 5 + 0 = 5.</p>
+
+                <h3>EJEMPLOS:</h3>
+                <p>Para hallar el resultado o suma de 345 + 986 + 635 + 114 se pueden usar de manera conveniente las propiedades de la adición.</p>
+                <div class="formula" style="color:#86efac;font-style:lighter;"><span style="vertical-align:middle;">345 + 986 + 635 + 114 = 345 + 635 + 986 + 114</span><span style="width:82px;height:8px;background-color:#ff6b6b;display:inline-block;vertical-align:middle;margin:0 15px;clip-path:polygon(0 35%,85% 35%,85% 0,100% 50%,85% 100%,85% 65%,0 65%);"></span><span style="vertical-align:middle;color:white;">Prop. Conmutativa</span><br><span style="padding-left:12.7em;display:inline-block;vertical-align:middle;">=(345 + 635) + (986 + 114)</span><span style="width:50px;height:8px;background-color:#ff6b6b;display:inline-block;vertical-align:middle;margin:0 15px;clip-path:polygon(0 35%,85% 35%,85% 0,100% 50%,85% 100%,85% 65%,0 65%);"></span><span style="vertical-align:middle;color:white;">Prop. Asociativa</span><br><span style="padding-left:12.7em;display:inline-block;vertical-align:middle;">=980 + 1100</span><span style="width:204px;height:8px;background-color:#ff6b6b;display:inline-block;vertical-align:middle;margin:0 15px;clip-path:polygon(0 35%,85% 35%,85% 0,100% 50%,85% 100%,85% 65%,0 65%);"></span><span style="vertical-align:middle;color:white;">Prop. Clausurativa</span><br><span style="padding-left:12.7em;display:inline-block;vertical-align:middle;">=2080</span></div>
+
+                <p>1. En una gran industria había 846 empleados.</p><div style="text-align:center; margin:1em 0;"><img src="images/Matemáticas/6/Im fabr.jpg" alt="Industria" style="width:400px; max-width:100%; border-radius:12px;"></div> 
+                <p>Luego, se produjo una expansión de sus instalaciones y 328 empleados nuevos fueron contratados. ¿Cuántos empleados hay ahora en la industria?</p>
+                <p>Para resolver el problema se identifican los datos conocidos:<br>
+                846: cantidad inicial de empleados.<br>
+                328: cantidad de empleados nuevos contratados.<br>
+                
+                <p>Luego, se plantea la opración y se resuelve:</p>
+                <span class="formula">846 + 328 = 1.174</span></p>
+                <div style="border-top:2px solid #2b7bea; border-bottom:2px solid #2b7bea; width:800px; height:8px; margin:10px 0;"></div>
+                <p>2. Realizar la siguiente adición 7.542.600 + 3.135.590. Para resolver la adición, se descomponen los sumandos y se aplica la propiedad asociativa.<br>
+                <p class="content" style="padding-left:4em;">• 7.542.600 = 7.000.000 + 542.000 + 600<br>
+                <p class="content" style="padding-left:4em;">• 3.135.590 = 3.000.000 + 135.000 + 590<br>
+                <br class="content" style="padding-left:4em;">• 7.542.600 + 3.135.590 = 7.000.000 + 3.000.000 + 542.000 + 135.000 + 600 + 590<br>
+                <p>Luego, se realizan las adiciones parciales, así:<br>
+                <p class="content" style="padding-left:4em;">• 7.542.600 + 3.135.590 = 10.000.000 + 677.000 + 1.190 = 10.678.190<br>
+                <p>Por tanto, 7.542.600 + 3.135.590 = 10.678.190.</p>
+
+                <h2>Sustracción o Resta de Números Naturales</h2>
+                <p>Es la operación inversa a la adición y es por la cual se determina la diferencia, es decir, en cuánto es mayor un número, llamado minuendo, con respecto a otro, denominado sustraendo.</p>
+                <p>En el proceso de sustracción se debe desagrupar siempre que sea necesario.</p>
+
+                <h3>EJEMPLOS:</h3>
+                <p>1. Hay 395 654 animales en una reserva forestal y 683 732 en otra. ¿Cuál de las dos reservas tiene mayor número de animales? ¿Cuántos más? Para responder, debemos efectuar la sustracción 683 732 — 395 654.</p>
+                <div class="resta-visual";><span style="font-weight:lighter;">                      6 8 3 7 3 2<br>                  -   3 9 5 6 5 4<br>                     <span style="border-top:3px solid #86efac; display:inline-block; width:170px;"> 2 8 8 0 7 8</span>
+                </div>
+                <p>Hay 288.078 animales más en la segunda reserva que en la primera.</p>
+                <div style="border-top:2px solid #2b7bea; border-bottom:2px solid #2b7bea; width:800px; height:8px; margin:10px 0;"></div>
+                <p>2. Calcula en cuánto es mayor 8 738 que 1 376.</p>El problema se resuelveefectuando la operación: 8 738 - 1 376
+                <style>
+    .resta-personalizada {
+        --padding-numeros: 12.7em;   /* Ajusta aquí la posición horizontal de los números */
+        --ancho-flecha: 82px;        /* Ajusta aquí el ancho de las flechas */
+        --color-flecha: #ff6b6b;     /* Color de las flechas */
+        --color-linea: #86efac;      /* Color de la línea */
+        --ancho-linea: 100px;        /* Ancho de la línea */
+    }
+    .resta-personalizada .numeros {
+        padding-left: var(--padding-numeros);
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .resta-personalizada .flecha {
+        width: var(--ancho-flecha);
+        height: 15px;
+        background-color: var(--color-flecha);
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 50px;
+        clip-path: polygon(0 35%, 85% 35%, 85% 0, 100% 50%, 85% 100%, 85% 65%, 0 65%);
+        cursor: pointer;
+    }
+    .resta-personalizada .texto {
+        vertical-align: middle;
+        color: white;
+    }
+    .resta-personalizada .linea-resultado {
+        border-top: 3px solid var(--color-linea);
+        display: inline-block;
+        width: var(--ancho-linea);
+        margin: 0 -15px;
+    }
+</style>
+
+<div class="formula resta-personalizada" style="color:#86efac;font-style:lighter;">
+    <span class="numeros">8 7 3 8</span>
+    <span class="flecha" title="Señala al Minuendo"></span>
+    <span class="texto">Minuendo</span>
+    <br>
+    <span class="numeros";class="content" style="padding-left:11.5em;">- 1 3 7 6</span>
+    <span class="flecha" title="Señala al Sustraendo"></span>
+    <span class="texto">Sustraendo</span>
+    <br>
+    <span class="numeros">
+        <span class="linea-resultado";class="content" style="padding-left:0.8em;">7 3 6 2</span>
+        <span class="flecha" title="Señala a la Diferencia"></span>
+        <span class="texto">Diferencia</span>
+    </span>
+                </div>
+                <p>Por lo tanto, 8.738 supera a 1.376 en 7.362.</p>
+
+                <h2>Suma y Resta de Números Naturales</h2>
+                <p>En algunas expresiones aparecen, de forma combinada, la suma y la resta. Ambas operaciones tienen la misma prioridad y se realizan según van apareciendo de izquierda a derecha.</p>
+                <p>Por ejemplo, 145 - 89 + 44 - 75.</p>Primero, se resta 145 - 89, luego se suma 44 y, por último, se resta 75, así:</p>
+                <div class="formula">145 - 89 + 44 - 75 = 56 + 44 - 75 = 100 - 75 = 25.</div>
+                    <div class="formula" style="font-family: 'Courier New', monospace; font-size: 1.2rem; margin: 1em 0; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 20px; display: inline-block; width: auto; min-width: 400px;">
+    <div style="text-align: center;">145 - 89 + 44 - 75 =</div>
+    
+    <div style="position: relative; text-align: center; margin: 50px 0 30px 0;">
+        <!-- Corchete único que abarca toda la operación -->
+        <div style="position: absolute; top: -55px; left:  mkl; right: 0; text-align: center;">
+            <div style="position: relative; display: inline-blz  bock; width: 90%;">
+                <!-- Extremo izquierdo del corchete -->
+                <div style="position: absolute; left: -290px; width: 80px; height: 20px; border-bottom: 2px solid #ff6b6b; border-left: 2px solid #ff6b6b; border-right: 2px solid #ff6b6b; border-radius: 0 0 12px 12px;"></div>
+                <div style="position: absolute; left: -250px; transform: translateX(-50%); width: 2px; height: 30px; background: #ff6b6b; top: 20px;"></div>
+                <div style="position: absolute; left: -250px; transform: translateX(-50%); top: 50px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 10px solid #ff6b6b;"></div>
+                </div>
+        </div>
+        <span style="font-size: 1.2rem;">56</span><span style="font-size: 1.2rem;"> + 44 - 75 =</span>
+    </div>
+
+    <div style="position: relative; text-align: center; margin: 50px 0 30px 0;">
+        <div style="position: absolute; top: -55px; left:  mkl; right: 0; text-align: center;">
+            <div style="position: relative; display: inline-blz  bock; width: 90%;">
+                <!-- Extremo izquierdo del corchete -->
+                <div style="position: absolute; left: -250px; width: 60px; height: 20px; border-bottom: 2px solid #ff6b6b; border-left: 2px solid #ff6b6b; border-right: 2px solid #ff6b6b; border-radius: 0 0 12px 12px;"></div>
+                <div style="position: absolute; left: -220px; transform: translateX(-50%); width: 2px; height: 30px; background: #ff6b6b; top: 20px;"></div>
+                <div style="position: absolute; left: -220px; transform: translateX(-50%); top: 50px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 10px solid #ff6b6b;"></div>
+                </div>
+        </div>
+        <span style="font-size: 1.2rem;">100</span><span style="font-size: 1.2rem;"> - 75 =</span>
+    </div>
+
+    <div style="position: relative; text-align: center; margin: 50px 0 30px 0;">
+        <div style="position: absolute; top: -55px; left:  mkl; right: 0; text-align: center;">
+            <div style="position: relative; display: inline-blz  bock; width: 90%;">
+                <!-- Extremo izquierdo del corchete -->
+                <div style="position: absolute; left: -230px; width: 80px; height: 20px; border-bottom: 2px solid #ff6b6b; border-left: 2px solid #ff6b6b; border-right: 2px solid #ff6b6b; border-radius: 0 0 12px 12px;"></div>
+                <div style="position: absolute; left: -190px; transform: translateX(-50%); width: 2px; height: 30px; background: #ff6b6b; top: 20px;"></div>
+                <div style="position: absolute; left: -190px; transform: translateX(-50%); top: 50px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 10px solid #ff6b6b;"></div>
+                </div>
+        </div>
+        <span style="position: absolute; left: 150px;; padding: 2px 10px; border-radius: 5px; font-size: 1.2rem;">25</span></div>
+</div>
+
+                <h3>EJEMPLOS:</h3>
+                <p>1. Si a = 324, b = 408 y c = 207, realizar todas las restas posibles con los números naturales dados.</p>
+                <p>Como es necesario que el minuendo sea mayor que el sustraendo, entonces, con los números dados es posible realizar solamente tres restas diferentes.</p>
+                <div class="formula">b - a = 408 - 324 = 84<br>b - c = 408 - 207 = 201<br>a - c = 324 - 207 = 117</div>
+<div style="border-top:2px solid #2b7bea; border-bottom:2px solid #2b7bea; width:850px; height:8px; margin:10px 0;"></div>
+                <p>2. En una panadería hay 112 tortas, 64 son de maíz, 37 son de zanahoria y el resto son de chocolate. ¿Cuántas tortas de chocolate hay?</p>
+                <p>Se identifican los datos conocidos:<p class="content" style="padding-left:2em;">• 112: cantidad total de tortas.<br>• 64: cantidad de tortas de maíz.<br>• 37: cantidad de tortas de zanahoria.<p>Luego, la cantidad de tortas de chocolate se obtiene al restar de la cantidad total de tortas, la cantidad de tortas de maíz y de zanahoria. Es decir:</p>
+                <div class="formula">112 - (64 + 37) = 112 - 101 <br><p class="content" style="padding-left:9.25em; color:#22c55e">= 11</div>
+                <p>Por tanto, hay 11 tortas de chocolate.</p>
+<div style="border-top:2px solid #2b7bea; border-bottom:2px solid #2b7bea; width:850px; height:8px; margin:10px 0;"></div>
+                <p>3. Sara y John van a un parque de diversiones y deciden tomar una bebida diferente y comer una hamburguesa cada uno para almorzar.</p>
+                <table class="tabla-precios">
+                    <thead><tr><th>Producto</th><th>Precio</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="img-icon">🍔</span> Hamburguesa</td><td>7.550</td></tr>
+                        <tr><td><span class="img-icon">🍕</span> Pizza personal</td><td>6.500</td></tr>
+                        <tr><td><span class="img-icon">🥤</span> Gaseosa</td><td>1.500</td></tr>
+                        <tr><td><span class="img-icon">🍋</span> Limonada</td><td>1.800</td></tr>
+                        <tr><td><span class="img-icon">🧃</span> Jugo en caja</td><td>1.150</td></tr>
+                    </tbody>
+                </table>
+                <p>Si pagan con $20.000 y consumieron las bebidas más económicas según la lista de precios, ¿cuánto dinero les devolvieron?</p>
+                <p class="content" style="padding-left:2em;">• Cada persona tomó una bebida diferente y de las más económicas, entonces, Sara y John compraron un jugo en caja y una gaseosa. Además, cada uno consumió una hamburguesa.<p>
+                Luego, la cantidad de dinero que gastaron Sara y John fue:</p>
+                <div class="formula">1.150 + 1.500 + 7.550 + 7.550 = 17.750.</div>
+                <p>Para conocer la cantidad de dinero que les devolvieron se resta lo que gastaron de los $20.000 que pagaron. Así: <p class="content" style="padding-left:2em;">• 20.000 – 17.750 = 2.250<p>Por tanto, la cantidad de dinero que les devolvieron a Sara y John fue $2.250.</p>
+
+                <hr class="sep">
+<style>
+    .suma-personalizada {
+        --color-linea: #ffffff;      /* Color de la línea */
+        --ancho-linea: 100px;        /* Ancho de la línea */
+        --espacio-simbolo: 20px     /* Espacio alrededor del símbolo + */
+    }
+    .suma-personalizada .operacion {
+        display: inline-block;
+        background: rgba(0,0,0,0.3);
+        padding: 15px 25px;
+        border-radius: 40px;
+        font-family: 'Courier New', monospace;
+    }
+    .suma-personalizada .linea {
+        display: flex;
+        align-items: center;
+        margin: 3px 0;
+    }
+    .suma-personalizada .numeros {
+        color: white;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        font-family: 'Courier New', monospace;
+        padding-left:1em;
+    }
+    /* Columna fija para el símbolo */
+    .suma-personalizada .col-simbolo {
+        width: 1px;
+        display: inline-block;
+        text-align: left;
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+     /* Columna fija para los números */
+    .suma-personalizada .col-numeros {
+        display: inline-block;
+        text-align: right;
+        font-family: 'Courier New', monospace;
+    }
+</style>
+                <!-- ACTIVIDADES DE APRENDIZAJE (COMPLETAS) -->
+                <div class="ejercicios-section">
+                    <h2>📌 ACTIVIDADES DE APRENDIZAJE</h2>
+
+                    <div class="ejercicio-grupo">
+                        <p>1. Resuelve cada adición. Reagrupa cuando sea necesario.</p>
+                        <ul class="ejercicio-lista">
+                            <li><span>a.</span>
+                            <div class="suma-visual"></span><span class="content" style="padding-left:2em; color: #ffffff;">2 5 7 8 6<br>+    6 9 3 2<br>   5 9 2 6 1</span><br><span style="border-top:3px solid #ffffff; display:inline-block; width:170px;"></span>
+                        </div></li>
+                        <li><span>b.</span>
+                                    <div class="suma-visual"></span><span class="content" style="padding-left:2em; color: #ffffff;"> 5 6 9 7<br>+   4 3 5 9<br>    2 3 7 5</span><br><span style="border-top:3px solid #ffffff; display:inline-block; width:170px;"></span>
+                        </div></li>
+                        <li><span>c.</span>
+                                    <div class="suma-visual"></span><span class="content" style="padding-left:2.6em; color: #ffffff;">1 6 3 8 4<br>+   4 6 8 3 5<br>  1 3 0 8 5 9</span><br><span style="border-top:3px solid #ffffff; display:inline-block; width:170px;"></span>
+                        </div></li>
+                        <li><span>d.</span>
+                                    <div class="suma-visual"></span><span class="content" style="padding-left:2em; color: #ffffff;">5 8 2 0 3<br>+  7 5 3 2 2<br>   3 2 9 5 3</span><br><span style="border-top:3px solid #ffffff; display:inline-block; width:170px;"></span>
+                        </div></li>
+                        <li><span>e.</span>
+                                    <div class="suma-visual"></span><span class="content" style="padding-left:2em; color: #ffffff;">6 9 7 1 4<br>+  1 5 9 8 5<br>   9 6 7 3 1</span><br><span style="border-top:3px solid #ffffff; display:inline-block; width:170px;"></span>
+                        </div></li> 
+                        <li><span>f.</span>
+                                    <div class="suma-visual"></span><span class="content" style="padding-left:2em; color: #ffffff;">7 9 2 0 4 8<br>+    5 2 6 4 9<br>   1 8 4 9 5 3</span><br><span style="border-top:3px solid #ffffff; display:inline-block; width:170px;"></span>
+                        </div></li>    
+                        </ul>
+                    </div>
+
+                    <div class="ejercicio-grupo">
+                        <p>2. Resuelve las siguientes sustracciones.</p>
+                        <ul class="ejercicio-lista">
+                            <li><span>a.</span> 5 643 – 762</li>
+                            <li><span>b.</span> 893 – 79</li>
+                            <li><span>c.</span> 802 – 148</li>
+                            <li><span>d.</span> 26.538 – 14.148</li>
+                        </ul><br>
+                        <p style="font-size: 1.0rem; font-weight: bold;">Verifica en cada caso que:<p style="font-size: 1.3rem; font-weight: bold;color:#ffffff";><span class="content" style="padding-left:9em;">• Diferencia + Sustraendo = Minuendo</span>
+                    </div>
+
+                    <div class="ejercicio-grupo">
+                        <p>3. Reconstruye cada una de las operaciones, ubicando las cifras desaparecidas en cada espacio.</p>
+                        <ul class="ejercicio-lista2">
+                            <li><span>a.</span><span style="font-family:'bold',monospace;font-size:1.1rem;">43<span class="cuadro"></span> + 2<span class="cuadro"></span>5 + <span class="cuadro"></span>87 = 1.068</span></li>
+                            <li><span>b.</span><span style="font-family:'bold',monospace;font-size:1.1rem;">8.<span class="cuadro"></span>22 - 2.5<span class="cuadro"></span>=<span class="cuadro"></span>.555</li>
+                            <li><span>c.</span><span style="font-family:'bold',monospace;font-size:0.9rem;">5.6<span class="cuadro"></span>8 + 4.09<span class="cuadro"></span>+<span class="cuadro"></span>.856 = 13.<span class="cuadro"></span>13</li>
+                            <li><span>d.</span><span style="font-family:'bold',monospace;font-size:1.1rem;"><span class="cuadro"></span>1.8<span class="cuadro"></span>6 - 3.<span class="cuadro"></span>52 = 8.27<span class="cuadro"></li>
+                            </ul>
+                    </div>
+
+                    <div class="ejercicio-grupo">
+                        <p>4. Relaciona cada adición con su respectivo resultado.</p>
+                        <ul class="ejercicio-lista2">
+                            <li><span>a.</span> 18.516 + 14.341</li><li><span>i.</span> 787.08</li>
+                            <li><span>b.</span> 8.267 + 73.656</li><li><span>ii.</span> 101.975.898</li>
+                            <li><span>c.</span> 747.915 + 39.167</li><li><span>iii.</span> 81.923</li>
+                            <li><span>d.</span> 26.820.934 + 3.256.268</li><li><span>iv.</span> 32.857</li>
+                            <li><span>e.</span> 34.408.573 + 67.567.325</li><li><span>v.</span> 30.077.202</li>
+                        </ul>
+                    </div>
+
+                    <div class="ejercicio-grupo">
+                        <p>5. Resuelve.</p>
+                        <ul class="ejercicio-lista3">
+                            <li><span>a.</span> En una biblioteca escolar hay 76.543 libros de matemáticas y 43.765 de ciencias. ¿Cuántos libros más hay de matemáticas que de ciencias?!</li>
+                            <li><span>b.</span> Un almacén tiene 81.298 camisetas y vendió 45.792 durante una promoción. ¿Cuántas camisetas quedan en el almacén??</li>
+                            <li><span>c.</span> Una campaña solidaria logró reunir 43.765 pesos, pero necesita llegar a 100.000 pesos para cumplir la meta. ¿Cuánto dinero falta recaudar?</li>
+                            <li><span>d.</span> En un estadio asistieron 65.498 personas, pero la capacidad recomendada era de 32.987. ¿En cuántas personas se excedió el aforo?</li>
+                            <li><span>e.</span> Una empresa tenía 567.894 litros de agua almacenados y después de una sequía solo quedaron 125.000 litros. ¿Cuántos litros se consumieron?</li>
+                            <li><span>f.</span> Un colegio recolectó 54.987 tapas plásticas para reciclar y quiere completar 100.000. ¿Cuántas tapas le faltan por recolectar??</li>
+                            <li><span>g.</span> En dos ciudades se registraron 65.434 y 34.965 habitantes respectivamente. ¿Cuál es la diferencia de población entre ambas ciudades?</li>
+                            <li><span>h.</span> Un deportista ha recorrido 64.219 metros en una maratón virtual y su meta es llegar a 100.000 metros. ¿Cuántos metros le faltan??</li>
+                            <li><span>i.</span> Una fábrica produjo 65.432 botellas, pero debe reducir la producción hasta llegar a 50.000. ¿Cuántas botellas debe disminuir?</li>
+                            <li><span>j.</span> Una tienda tenía 78.321 juguetes y después de varias ventas quedaron 23.432. ¿Cuántos juguetes se vendieron?</li>
+                            <li><span>k.</span> Una empresa dedicada a la producción de plantas exportó 563.256 orquídeas, 185.562 helechos y 368.850 rosas. ¿Cuántas plantas exportó en total?</li>
+                            <li><span>l.</span> Roberto nace en 1928 y se casa a los 30 años. Dos años después nace su hija y él muere cuando ella tiene 30 años. ¿En qué año muere Roberto?</li>
+                        </ul>
+                    </div>
+
+                    <div class="ejercicio-grupo">
+                        <p>6. Observa los letreros que se encuentran en la siguiente figura y contesta las preguntas.</p>
+                        <div style="text-align:center; margin:1em 0;"><img src="images/Matemáticas/6/Tablero-ventas.png" alt="Industria" style="width:400px; max-width:100%; border-radius:12px;"></div>
+                        <ul class="ejercicio-lista3">
+                            <li><span>a.</span> ¿Cuánto dinero se requiere para comprar una libra de carne, tres peras, cinco zanahorias, una libra de papa, media libra de arveja y dos libras de arroz? ¿Es suficiente con $15000? Determina cuánto dinero falta o cuánto sobra.</li>
+                            <li><span>b.</span> Supón que quieres comprar 3 kilogramos de arroz y 2 kilogramos de arveja. Si llevas $10000, ¿podrás hacer esa compra? Explica cuánto dinero falta o cuánto sobra en uno u otro caso.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Nota: el texto de los ejercicios 5 y 6 se ha transcrito literalmente como aparece en el PDF, incluyendo las erratas o estilo original -->
+                <hr class="sep">
+                </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                <li><a href="https://x.com/ederdavid1986" class="icon brands fa-x-twitter alt"><span class="label">X</span></a></li>
+                <li><a href="https://www.facebook.com/ederdavids" class="icon brands alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+                <li><a href="https://www.instagram.com/ederdavid1986" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                <li><a href="https://github.com/auladelprofeeder" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                <li><a href="https://www.tiktok.com/@eldavidedd" class="icon brands alt fa-tiktok" target="_blank"><span class="label">TikTok</span></a></li>
+            </ul>
+            <div class="copyright">&copy; 2026 MathEscape | Guía completa de suma y resta - Diseño: <a href="https://html5up.net">HTML5 UP</a></div>
+        </div>
+    </footer>
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
